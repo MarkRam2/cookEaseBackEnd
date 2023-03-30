@@ -13,10 +13,10 @@ builder.Services.AddScoped<PasswordService>();
 builder.Services.AddScoped<ArticleService>();
 builder.Services.AddControllers();
 
-var connectString = builder.Configuration.GetConnectionString("MyCookEaseString");
-builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(conectionString));
+var connectionString = builder.Configuration.GetConnectionString("MyCookEaseString");
+builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
 
-void conectionString(SqlServerDbContextOptionsBuilder obj)
+// void connectionString(SqlServerDbContextOptionsBuilder obj)
 {
     throw new NotImplementedException();
 }
