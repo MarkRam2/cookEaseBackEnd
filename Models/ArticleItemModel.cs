@@ -18,5 +18,7 @@ namespace cookEaseBackEnd.Models
         public string? Categories { get; set; }
         public bool isPublished { get; set; }
         public bool isDeleted { get; set; }
+    
+        public ArticleItemModel(){}
     }   
 }

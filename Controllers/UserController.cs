@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace cookEaseBackEnd.Controllers
 {
     [ApiController]
-    [Route("[]")]
+    [Route("[controller]")]
     public class UserController : ControllerBase
     {
         

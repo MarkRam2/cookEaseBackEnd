@@ -7,8 +7,8 @@ namespace cookEaseBackEnd.Models.Dto
 {
     public class PasswordDto
     {
-        public string? Saltt { get; set; }
-        public string? hash { get; set; }
+        public string? Salt { get; set; }
+        public string? Hash { get; set; }
         
     }
 }
