@@ -17,9 +17,9 @@ var connectionString = builder.Configuration.GetConnectionString("MyCookEaseStri
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
 
 // void connectionString(SqlServerDbContextOptionsBuilder obj)
-{
-    throw new NotImplementedException();
-}
+// {
+//     throw new NotImplementedException();
+// }
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
