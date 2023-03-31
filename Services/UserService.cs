@@ -25,7 +25,14 @@ namespace cookEaseBackEnd.Services
             bool result = false;
             if(!DoesUserExist(UserToAdd.Username)){
                 UserModel newUser = new UserModel();
-                result = true;
+                var hashPassword = HashPassword(UserToAdd.Password);
+                newUser.Id = UserToAdd.Id;
+                newUser.Username = UserToAdd.Username;
+                newUser.Salt = hashPassword.Salt;
+                newUser.Hash = hashPassword.Hash;
+
+                _context.Add(newUser);
+                result = _context.SaveChanges() != 0;
             }
             return result;
         }
