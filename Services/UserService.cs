@@ -54,9 +54,16 @@ namespace cookEaseBackEnd.Services
 
             return newHashedPassword;
         }
-        // public bool VerifyUserPassword(string? Password, string? storedHash, string? storedSalt){
-        //     var SaltBytes = Convert.
-        // }
+        public bool VerifyUserPassword(string? Password, string? storedHash, string? storedSalt){
+            // get our existing salt and change it to base 64 string
+            var SaltBytes = Convert.FromBase64String(storedSalt);
+            // making the password that the user inputed and using the stored salt
+            var rfc2898DeriveBytes = new Rfc2898DeriveBytes(Password, SaltBytes, 10000);
+            // created the new hash
+            var newHash = Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256));
+            // checking if the new hash is the same as the stored hash
+            return newHash == storedHash;
+        }
 
     }
 }
