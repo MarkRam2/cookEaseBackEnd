@@ -6,10 +6,15 @@ using cookEaseBackEnd.Models;
 using cookEaseBackEnd.Models.Dto;
 using cookEaseBackEnd.Services.Context;
 using System.Security.Cryptography;
+using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.Security.Claims;
 
 namespace cookEaseBackEnd.Services
 {
-    public class UserService
+    public class UserService : ControllerBase
     {
         public readonly DataContext _context;
         public UserService(DataContext context){
@@ -63,6 +68,42 @@ namespace cookEaseBackEnd.Services
             var newHash = Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256));
             // checking if the new hash is the same as the stored hash
             return newHash == storedHash;
+        }
+
+        public IActionResult Login(LoginDto User){
+            IActionResult Result = Unauthorized();
+            if(DoesUserExist(User.Username)){
+                // true
+                // we want to store the user object
+                // to create another helper function
+                UserModel foundUser = GetUserByUsername(User.Username);
+                // check if user password is correct
+                if(VerifyUserPassword(User.Password, foundUser.Hash, foundUser.Salt)){
+                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes
+                    ("SuperSecretKey@345"));
+                    var signinCredentials = new SigningCredentials(secretKey,
+                    SecurityAlgorithms.HmacSha256);
+                    var tokeOptions = new JwtSecurityToken(
+                        issuer: "http://localhost:5000",
+                        audience: "http://localhost:5000",
+                        claims: new List<Claim>(),
+                        expires: DateTime.Now.AddMinutes(30),
+                        signingCredentials: signinCredentials
+                    );
+                    var tokenString = new JwtSecurityTokenHandler().WriteToken
+                    (tokeOptions);
+                    Result = Ok(new { Token = tokenString});
+                }
+            }
+            return Result;
+        }
+        public UserModel GetUserByUsername(string? username){
+            return _context.UserInfo.SingleOrDefault(user => user.Username == username);
+        }
+
+        public bool UpdateUser(UserModel userToUpdate){
+            _context.Update<UserModel>(userToUpdate);
+            return _context.SaveChanges() != 0;
         }
 
     }

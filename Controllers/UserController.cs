@@ -6,6 +6,7 @@ using cookEaseBackEnd.Models.Dto;
 using cookEaseBackEnd.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography;
+using cookEaseBackEnd.Models;
 
 namespace cookEaseBackEnd.Controllers
 {
@@ -18,11 +19,23 @@ namespace cookEaseBackEnd.Controllers
             _data = dataFromService;
         }
 
-        public bool VerifyUserPassword(string? Password, string? storedHash, string? storedSalt){
-            var SaltBytes = Convert.FromBase64String(storedSalt);
-            var rfc2898DeriveBytes = new Rfc2898DeriveBytes(Password, SaltBytes, 10000);
-            var newHash = Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256));
-            return newHash == storedHash;
+        [HttpPost]
+        [Route("Login")]
+        public IActionResult Login([FromBody] LoginDto User){
+            return _data.Login(User);
         }
+
+        [HttpPost]
+        [Route("AddUser")]
+        public bool AddUser(CreateAccountDto UserToAdd){
+            return _data.AddUser(UserToAdd);
+        }
+
+        [HttpPost]
+        [Route("AddUser")]
+        public bool UpdateUser(UserModel userToUpdate){
+            return _data.UpdateUser(userToUpdate);
+        }
+
     }
 }
