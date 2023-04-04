@@ -79,8 +79,7 @@ namespace cookEaseBackEnd.Services
                 UserModel foundUser = GetUserByUsername(User.Username);
                 // check if user password is correct
                 if(VerifyUserPassword(User.Password, foundUser.Hash, foundUser.Salt)){
-                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes
-                    ("SuperSecretKey@345"));
+                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SuperSecretKey@345"));
                     var signinCredentials = new SigningCredentials(secretKey,
                     SecurityAlgorithms.HmacSha256);
                     var tokeOptions = new JwtSecurityToken(
@@ -90,8 +89,7 @@ namespace cookEaseBackEnd.Services
                         expires: DateTime.Now.AddMinutes(30),
                         signingCredentials: signinCredentials
                     );
-                    var tokenString = new JwtSecurityTokenHandler().WriteToken
-                    (tokeOptions);
+                    var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
                     Result = Ok(new { Token = tokenString});
                 }
             }
@@ -106,5 +104,35 @@ namespace cookEaseBackEnd.Services
             return _context.SaveChanges() != 0;
         }
 
+        public bool UpdateUsername(int id, string username){
+            var foundUser = GetUserById(id);
+            // this one is sending over just the id and username
+            // we have to get the object to then be updated
+            UserModel founduser = GetUserById(id);
+            bool result = false;
+            if(foundUser != null){
+                // a user was found
+                foundUser.Username = username;
+                _context.Update<UserModel>(foundUser);
+                result = _context.SaveChanges() != 0;
+            }
+            return result;
+        }
+        public UserModel GetUserById(int id){
+            return _context.UserInfo.SingleOrDefault(user => user.Id == id);
+        }
+
+        public bool DeleteUser(string userToDelete){
+            // this one is just sending ove the username
+            // we have to get the object to be deleted
+            UserModel foundUser = GetUserByUsername(userToDelete);
+            bool result = false;
+            if(foundUser != null){
+                _context.Remove<UserModel>(foundUser);
+                result = _context.SaveChanges() != 0;
+            }
+            return result;
+        }
+        
     }
 }

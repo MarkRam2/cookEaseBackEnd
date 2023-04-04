@@ -32,10 +32,21 @@ namespace cookEaseBackEnd.Controllers
         }
 
         [HttpPost]
-        [Route("AddUser")]
+        [Route("UpdateUser")]
         public bool UpdateUser(UserModel userToUpdate){
             return _data.UpdateUser(userToUpdate);
         }
 
+        [HttpPost]
+        [Route("UpdateUser/{id}/{username}")]
+        public bool UpdateUser(int id, string username){
+            return _data.UpdateUsername(id, username);
+        }
+        
+        [HttpPost]
+        [Route("DeleteUser/{userToDeleted}")] 
+        public bool DeleteUser(string userToDelete){
+            return _data.DeleteUser(userToDelete);
+        }
     }
 }
