@@ -64,5 +64,14 @@ namespace cookEaseBackEnd.Services
         public IEnumerable<ArticleItemModel> GetItemsByPublished(){
             return _context.ArticleInfo.Where(item => item.isPublished);
         }
+        public bool UpdateArticleItem(ArticleItemModel ArticleUpdate){
+            _context.Update<ArticleItemModel>(ArticleUpdate);
+            return _context.SaveChanges() != 0;
+        }
+        public bool DeleteArticleItem(ArticleItemModel ArticleDelete){
+            ArticleDelete.isDeleted = true;
+            _context.Update<ArticleItemModel>(ArticleDelete);
+            return _context.SaveChanges() != 0;
+        }
     }
 }

@@ -16,6 +16,15 @@ builder.Services.AddControllers();
 var connectionString = builder.Configuration.GetConnectionString("MyCookEaseString");
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
 
+builder.Services.AddCors(options => {
+    options.AddPolicy("ArticlePolicy", 
+    builder => {
+        builder.WithOrigins("http://localhost:3000")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+
 // void connectionString(SqlServerDbContextOptionsBuilder obj)
 // {
 //     throw new NotImplementedException();

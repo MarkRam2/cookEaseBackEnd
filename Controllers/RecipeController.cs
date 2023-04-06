@@ -76,6 +76,18 @@ namespace cookEaseBackEnd.Controllers
         public IEnumerable<RecipeItemModel> GetItemsByRegion(string Region){
             return _data.GetItemsByRegion(Region);
         }
+
+        [HttpPost]
+        [Route("UpdateRecipeItem")]
+        public bool UpdateRecipeItem(RecipeItemModel RecipeUpdate){
+            return _data.UpdateRecipeItem(RecipeUpdate);
+        }
+
+        [HttpPost]
+        [Route("DeleteRecipeItem")]
+        public bool DeleteRecipeItem(RecipeItemModel RecipeDelete){
+            return _data.DeleteRecipeItem(RecipeDelete);
+        }
         
     }
 }

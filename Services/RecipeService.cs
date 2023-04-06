@@ -58,5 +58,14 @@ namespace cookEaseBackEnd.Services
         public IEnumerable<RecipeItemModel> GetItemsByRegion(string Region){
             return _context.RecipeInfo.Where(item => item.Region == Region);
         }
+        public bool UpdateRecipeItem(RecipeItemModel RecipeUpdate){
+            _context.Update<RecipeItemModel>(RecipeUpdate);
+            return _context.SaveChanges() != 0;
+        }
+        public bool DeleteRecipeItem(RecipeItemModel RecipeDelete){
+            RecipeDelete.isDeleted = true;
+            _context.Update<RecipeItemModel>(RecipeDelete);
+            return _context.SaveChanges() != 0;
+        }
     }
 }
