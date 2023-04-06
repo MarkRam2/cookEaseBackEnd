@@ -11,7 +11,7 @@ using cookEaseBackEnd.Services.Context;
 namespace cookEaseBackEnd.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230330174821_init")]
+    [Migration("20230406181324_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -31,9 +31,6 @@ namespace cookEaseBackEnd.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ArticleName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Categories")
                         .HasColumnType("nvarchar(max)");
@@ -55,6 +52,9 @@ namespace cookEaseBackEnd.Migrations
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
 
                     b.Property<bool>("isDeleted")
                         .HasColumnType("bit");
@@ -85,6 +85,9 @@ namespace cookEaseBackEnd.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PublisherName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Region")

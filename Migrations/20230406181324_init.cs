@@ -16,7 +16,7 @@ namespace cookEaseBackEnd.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ArticleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserID = table.Column<int>(type: "int", nullable: false),
                     PublisherName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Date = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -39,6 +39,7 @@ namespace cookEaseBackEnd.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserID = table.Column<int>(type: "int", nullable: false),
+                    PublisherName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Date = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
