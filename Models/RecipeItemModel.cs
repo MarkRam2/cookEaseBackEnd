@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace cookEaseBackEnd.Models
 {
+    [Keyless]
+
     public class RecipeItemModel
     {
         public int Id { get; set; }
@@ -17,8 +20,11 @@ namespace cookEaseBackEnd.Models
         public string? Diet { get; set; }
         public string? Tags { get; set; }  
         public string? Region { get; set; }
+        public List<string> Ingredients { get; set; }
+        public List<int> Quantities { get; set; }
         public bool isPublished { get; set; }
         public bool isDeleted { get; set; }
+        
         public RecipeItemModel(){}
     }
 }

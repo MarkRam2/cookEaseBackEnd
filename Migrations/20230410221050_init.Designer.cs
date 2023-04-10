@@ -11,7 +11,7 @@ using cookEaseBackEnd.Services.Context;
 namespace cookEaseBackEnd.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230406181324_init")]
+    [Migration("20230410221050_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -69,12 +69,6 @@ namespace cookEaseBackEnd.Migrations
 
             modelBuilder.Entity("cookEaseBackEnd.Models.RecipeItemModel", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
                     b.Property<string>("Date")
                         .HasColumnType("nvarchar(max)");
 
@@ -83,6 +77,9 @@ namespace cookEaseBackEnd.Migrations
 
                     b.Property<string>("Diet")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
@@ -107,8 +104,6 @@ namespace cookEaseBackEnd.Migrations
 
                     b.Property<bool>("isPublished")
                         .HasColumnType("bit");
-
-                    b.HasKey("Id");
 
                     b.ToTable("RecipeInfo");
                 });
