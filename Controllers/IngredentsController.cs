@@ -17,6 +17,18 @@ namespace cookEaseBackEnd.Controllers
             _data = dataFromService;
         }
 
+        [HttpPost]
+        [Route("AddIngredents")]
+        public bool AddIngredents( ArticleItemModel newArticelItem){
+            return _data.AddIngredents(newArticelItem);
+        }
+
+        [HttpGet]
+        [Route("GetItemsByRecipeId/{UserId}")]
+        public IEnumerable<RecipeItemModel> GetItemsByRecipeId(int RecipeId){
+            return _data.GetItemsByRecipeId(RecipeId);
+        }
+
 
 
     }
