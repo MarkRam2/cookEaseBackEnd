@@ -61,7 +61,7 @@ namespace cookEaseBackEnd.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ArticleInfo");
+                    b.ToTable("ArticleItemModel");
                 });
 
             modelBuilder.Entity("cookEaseBackEnd.Models.RecipeItemModel", b =>

@@ -12,6 +12,8 @@ namespace cookEaseBackEnd.Services.Context
         public DbSet<UserModel> UserInfo { get; set; }
         public DbSet<RecipeItemModel> RecipeInfo { get; set; }
         public DbSet<ArticleItemModel> ArticleInfo { get; set; }
+        public DbSet<ArticleItemModel> IngredientsModel { get; set; }
+        
 
         public DataContext(DbContextOptions options): base(options){
         }
