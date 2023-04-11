@@ -7,12 +7,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace cookEaseBackEnd.Models
 {
-    [Keyless]
-    public class IngredientsModel
-    {
-        public string? Ingredient { get; set; }
-        public int? Quantity { get; set; }
-    }
 
     [Keyless]
     public class RecipeItemModel
@@ -27,7 +21,7 @@ namespace cookEaseBackEnd.Models
         public string? Diet { get; set; }
         public string? Tags { get; set; }
         public string? Region { get; set; }
-        public List<IngredientsModel> Ingredients { get; set; }
+
         public bool isPublished { get; set; }
         public bool isDeleted { get; set; }
 
