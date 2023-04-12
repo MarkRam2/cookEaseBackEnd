@@ -12,15 +12,15 @@ namespace cookEaseBackEnd.Controllers
     [Route("[controller]")]
     public class IngredentsController : ControllerBase
     {
-        private readonly ArticleService _data;
-        public IngredentsController(ArticleService dataFromService){
+        private readonly IngredentService _data;
+        public IngredentsController(IngredentService dataFromService){
             _data = dataFromService;
         }
 
         [HttpPost]
         [Route("AddIngredents")]
-        public bool AddIngredents( ArticleItemModel newArticelItem){
-            return _data.AddIngredents(newArticelItem);
+        public bool AddIngredents( IngredentsItemModel newIngredentsItem){
+            return _data.AddIngredents(newIngredentsItem);
         }
 
         [HttpGet]
@@ -28,8 +28,6 @@ namespace cookEaseBackEnd.Controllers
         public IEnumerable<RecipeItemModel> GetItemsByRecipeId(int RecipeId){
             return _data.GetItemsByRecipeId(RecipeId);
         }
-
-
 
     }
 }
