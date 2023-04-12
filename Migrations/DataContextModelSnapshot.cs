@@ -68,7 +68,10 @@ namespace cookEaseBackEnd.Migrations
             modelBuilder.Entity("cookEaseBackEnd.Models.IngredientsItemModel", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Ingredient")
                         .HasColumnType("nvarchar(max)");
@@ -78,6 +81,8 @@ namespace cookEaseBackEnd.Migrations
 
                     b.Property<int?>("Weight")
                         .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.ToTable("IngredientInfo");
                 });

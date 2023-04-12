@@ -36,13 +36,15 @@ namespace cookEaseBackEnd.Migrations
                 name: "IngredientInfo",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RecipeId = table.Column<int>(type: "int", nullable: true),
                     Ingredient = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Weight = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_IngredientInfo", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(

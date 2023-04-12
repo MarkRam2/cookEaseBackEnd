@@ -12,7 +12,7 @@ using cookEaseBackEnd.Services.Context;
 namespace cookEaseBackEnd.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230412171852_init")]
+    [Migration("20230412210852_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -71,7 +71,10 @@ namespace cookEaseBackEnd.Migrations
             modelBuilder.Entity("cookEaseBackEnd.Models.IngredientsItemModel", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Ingredient")
                         .HasColumnType("nvarchar(max)");
@@ -81,6 +84,8 @@ namespace cookEaseBackEnd.Migrations
 
                     b.Property<int?>("Weight")
                         .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.ToTable("IngredientInfo");
                 });
