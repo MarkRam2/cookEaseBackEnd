@@ -33,6 +33,19 @@ namespace cookEaseBackEnd.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "IngredientInfo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    RecipeId = table.Column<int>(type: "int", nullable: true),
+                    Ingredient = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Weight = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                });
+
+            migrationBuilder.CreateTable(
                 name: "RecipeInfo",
                 columns: table => new
                 {
@@ -76,6 +89,9 @@ namespace cookEaseBackEnd.Migrations
         {
             migrationBuilder.DropTable(
                 name: "ArticleInfo");
+
+            migrationBuilder.DropTable(
+                name: "IngredientInfo");
 
             migrationBuilder.DropTable(
                 name: "RecipeInfo");
