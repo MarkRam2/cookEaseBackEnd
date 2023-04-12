@@ -27,6 +27,10 @@ namespace cookEaseBackEnd.Services
             return _context.ArticleInfo.Where(item => item.UserID == UserId);
         }
 
+        public IEnumerable<ArticleItemModel> GetArticleById(int Id){
+            return _context.ArticleInfo.Where(item => item.Id == Id);
+        }
+
         public IEnumerable<ArticleItemModel> GetItemsByCategory(string Categories){
             return _context.ArticleInfo.Where(item => item.Categories == Categories);
         }

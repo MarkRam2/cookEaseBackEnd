@@ -71,11 +71,18 @@ namespace cookEaseBackEnd.Controllers
             return _data.GetItemsByPublished();
         }
 
+        [HttpGet]
+        [Route("GetArticleById/{Id}")]
+        public IEnumerable<ArticleItemModel> GetArticleById(int Id){
+            return _data.GetArticleById(Id);
+        }
+
         [HttpPost]
         [Route("UpdateArticleItem")]
         public bool UpdateArticleItem(ArticleItemModel ArticleUpdate){
             return _data.UpdateArticleItem(ArticleUpdate);
         }
+
         [HttpPost]
         [Route("DeleteArticleItem")]
         public bool DeleteArticleItem(ArticleItemModel ArticleDelete){
