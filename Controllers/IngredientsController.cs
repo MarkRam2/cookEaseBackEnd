@@ -29,5 +29,12 @@ namespace cookEaseBackEnd.Controllers
             return _data.GetItemsByRecipeId(RecipeId);
         }
 
+        [HttpPost]
+        [Route("UpdateIngrdientItem")]
+        public bool UpdateIngredientItem(IngredientsItemModel IngredientUpdate){
+            return _data.UpdateIngredientItem(IngredientUpdate);
+        }
+
+
     }
 }
