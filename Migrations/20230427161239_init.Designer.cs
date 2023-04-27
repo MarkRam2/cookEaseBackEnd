@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using cookEaseBackEnd.Services.Context;
 
@@ -11,9 +12,11 @@ using cookEaseBackEnd.Services.Context;
 namespace cookEaseBackEnd.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230427161239_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,7 +65,7 @@ namespace cookEaseBackEnd.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ArticleItemModel");
+                    b.ToTable("ArticleInfo");
                 });
 
             modelBuilder.Entity("cookEaseBackEnd.Models.IngredientsItemModel", b =>
@@ -123,6 +126,12 @@ namespace cookEaseBackEnd.Migrations
 
             modelBuilder.Entity("cookEaseBackEnd.Models.RecipeItemModel", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<string>("Date")
                         .HasColumnType("nvarchar(max)");
 
@@ -131,9 +140,6 @@ namespace cookEaseBackEnd.Migrations
 
                     b.Property<string>("Diet")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
@@ -158,6 +164,8 @@ namespace cookEaseBackEnd.Migrations
 
                     b.Property<bool>("isPublished")
                         .HasColumnType("bit");
+
+                    b.HasKey("Id");
 
                     b.ToTable("RecipeInfo");
                 });

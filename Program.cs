@@ -11,6 +11,8 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<RecipeService>();
 builder.Services.AddScoped<PasswordService>();
 builder.Services.AddScoped<ArticleService>();
+builder.Services.AddScoped<IngredientService>();
+builder.Services.AddScoped<NutritionService>();
 builder.Services.AddControllers();
 
 var connectionString = builder.Configuration.GetConnectionString("MyCookEaseString");
@@ -46,7 +48,9 @@ if (app.Environment.IsDevelopment())
 
 // app.UseHttpsRedirection();
 
-app.UseCors("cookPolicy");
+
+app.UseCors("ArticlePolicy");
+
 
 app.UseAuthorization();
 
