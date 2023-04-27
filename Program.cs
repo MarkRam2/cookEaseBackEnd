@@ -12,6 +12,7 @@ builder.Services.AddScoped<RecipeService>();
 builder.Services.AddScoped<PasswordService>();
 builder.Services.AddScoped<ArticleService>();
 builder.Services.AddScoped<IngredientService>();
+builder.Services.AddScoped<NutritionService>();
 builder.Services.AddControllers();
 
 var connectionString = builder.Configuration.GetConnectionString("MyCookEaseString");

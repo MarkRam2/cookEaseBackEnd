@@ -12,7 +12,7 @@ using cookEaseBackEnd.Services.Context;
 namespace cookEaseBackEnd.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230412210852_init")]
+    [Migration("20230427161239_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -88,6 +88,40 @@ namespace cookEaseBackEnd.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("IngredientInfo");
+                });
+
+            modelBuilder.Entity("cookEaseBackEnd.Models.NutritionItemModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Calories")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Carbs")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Fat")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IngredientName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Protein")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Sodium")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("NutritionInfo");
                 });
 
             modelBuilder.Entity("cookEaseBackEnd.Models.RecipeItemModel", b =>

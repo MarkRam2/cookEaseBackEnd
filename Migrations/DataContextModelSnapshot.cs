@@ -87,6 +87,40 @@ namespace cookEaseBackEnd.Migrations
                     b.ToTable("IngredientInfo");
                 });
 
+            modelBuilder.Entity("cookEaseBackEnd.Models.NutritionItemModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Calories")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Carbs")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Fat")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IngredientName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Protein")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Sodium")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("NutritionInfo");
+                });
+
             modelBuilder.Entity("cookEaseBackEnd.Models.RecipeItemModel", b =>
                 {
                     b.Property<int>("Id")

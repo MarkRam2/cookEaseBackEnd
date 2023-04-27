@@ -48,6 +48,25 @@ namespace cookEaseBackEnd.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "NutritionInfo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IngredientName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Calories = table.Column<int>(type: "int", nullable: false),
+                    Protein = table.Column<int>(type: "int", nullable: false),
+                    Carbs = table.Column<int>(type: "int", nullable: false),
+                    Fat = table.Column<int>(type: "int", nullable: false),
+                    Sodium = table.Column<int>(type: "int", nullable: false),
+                    isDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_NutritionInfo", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "RecipeInfo",
                 columns: table => new
                 {
@@ -94,6 +113,9 @@ namespace cookEaseBackEnd.Migrations
 
             migrationBuilder.DropTable(
                 name: "IngredientInfo");
+
+            migrationBuilder.DropTable(
+                name: "NutritionInfo");
 
             migrationBuilder.DropTable(
                 name: "RecipeInfo");
