@@ -7,6 +7,7 @@ using cookEaseBackEnd.Services.Context;
 
 namespace cookEaseBackEnd.Services
 {
+
     public class IngredientService
     {
 
@@ -26,6 +27,7 @@ namespace cookEaseBackEnd.Services
             _context.Update<IngredientsItemModel>(IngredientUpdate);
             return _context.SaveChanges() != 0;
         }
+
 
 
         

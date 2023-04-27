@@ -15,6 +15,7 @@ namespace cookEaseBackEnd.Services
         }
         public bool AddRecipeItem(RecipeItemModel newRecipeItem){
             _context.Add(newRecipeItem);
+            
             return _context.SaveChanges() != 0;
         }
         public IEnumerable<RecipeItemModel> GetAllRecipeItems(){
