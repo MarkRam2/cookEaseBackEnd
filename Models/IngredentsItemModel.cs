@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
 using cookEaseBackEnd.Services.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace cookEaseBackEnd.Models
 {
-
     [Keyless]
     public class IngredientsItemModel
     {
@@ -21,14 +15,32 @@ namespace cookEaseBackEnd.Models
         public IngredientsItemModel() { }
     }
 
-    public class Program{
-        static void Main(string[] args){
-            IngredientsItemModel model = new IngredientsItemModel{
-                
-                Ingredent = "flour",
-                Weight = 100,
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            List<IngredientsItemModel> ingredients = new List<IngredientsItemModel>();
 
-            };
+            using (var dbContext = new DataContext())
+            {
+                var ingredientsFromDb = dbContext.IngredientInfo
+                    .Where(i => i.RecipeId == 1)
+                    .ToList();
+
+                foreach (var Ingredent in ingredientsFromDb)
+                {
+                    IngredientsItemModel model = new IngredientsItemModel
+                    {
+                        Ingredent = Ingredent.Ingredent,
+                        Weight = Ingredent.Weight,
+                    };
+                    ingredients.Add(model);
+                }
+            }
+
+            var options = new JsonSerializerOptions();
+
+            string jsonString = JsonSerializer.Serialize<List<IngredientsItemModel>>(ingredients);
         }
     }
 }

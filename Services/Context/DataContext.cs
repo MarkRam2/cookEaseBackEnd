@@ -19,6 +19,10 @@ namespace cookEaseBackEnd.Services.Context
         public DataContext(DbContextOptions options): base(options){
         }
 
+        public DataContext()
+        {
+        }
+
         protected override void OnModelCreating(ModelBuilder builder){
             base.OnModelCreating(builder);
         }
