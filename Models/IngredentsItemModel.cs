@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
+using cookEaseBackEnd.Services.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace cookEaseBackEnd.Models
@@ -20,19 +21,14 @@ namespace cookEaseBackEnd.Models
         public IngredientsItemModel() { }
     }
 
-    public class IngredentArray
-
-    public class Program
-    {
-        static void Main(string[] args)
-        {
-            IngredientsItemModel IngArray = new IngredientsItemModel
-            {
+    public class Program{
+        static void Main(string[] args){
+            IngredientsItemModel model = new IngredientsItemModel{
                 
+                Ingredent = "flour",
+                Weight = 100,
+
             };
-            var options = new JsonSerializerOptions();
-            
-            string json = JsonSerializer.Serialize<IngredientsItemModel>(IngArray);
         }
     }
 }
