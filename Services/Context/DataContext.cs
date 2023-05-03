@@ -15,7 +15,12 @@ namespace cookEaseBackEnd.Services.Context
         public DbSet<IngredientsItemModel> IngredientInfo { get; set; }
         public DbSet<NutritionItemModel> NutritionInfo { get; set; }
 
+
         public DataContext(DbContextOptions options): base(options){
+        }
+
+        public DataContext()
+        {
         }
 
         protected override void OnModelCreating(ModelBuilder builder){
