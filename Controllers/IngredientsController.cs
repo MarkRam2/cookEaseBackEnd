@@ -27,6 +27,7 @@ namespace cookEaseBackEnd.Controllers
         [Route("GetItemsByRecipeId/{RecipeId}")]
         public IEnumerable<IngredientsItemModel> GetItemsByRecipeId(int RecipeId){
             return _data.GetItemsByRecipeId(RecipeId);
+            
         }
 
         [HttpPost]
