@@ -44,12 +44,11 @@ namespace cookEaseBackEnd.Controllers
         }
         
         [HttpPost]
-        [Route("DeleteUser/{userToDeleted}")] 
+        [Route("DeleteUser/{userToDelete}")] 
         public bool DeleteUser(string userToDelete){
             return _data.DeleteUser(userToDelete);
         }
-        
-        [HttpGet]
+
         [Route("GetUserByUsername/{username}")]
         public UserModel GetUserByUsername(string? username){
             return _data.GetUserByUsername(username);
