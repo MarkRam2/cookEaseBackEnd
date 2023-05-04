@@ -1,4 +1,5 @@
 using System.Text.Json;
+using cookEaseBackEnd.Services;
 using cookEaseBackEnd.Services.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,10 +14,13 @@ namespace cookEaseBackEnd.Models
         public int? Weight { get; set; }
 
         public IngredientsItemModel() { }
+        
     }
-
+                
+    
     public class Program
     {
+
         static void Main(string[] args)
         {
             List<IngredientsItemModel> ingredients = new List<IngredientsItemModel>();
