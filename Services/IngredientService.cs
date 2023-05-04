@@ -22,15 +22,11 @@ namespace cookEaseBackEnd.Services
         }
         public IEnumerable<IngredientsItemModel> GetItemsByRecipeId(int RecipeId)
         {
-            var items = _context.IngredientInfo.Where(item => item.RecipeId == RecipeId);
-            var count = _context.IngredientInfo.Count(item => item.RecipeId == RecipeId); 
-            return items;
+            return _context.IngredientInfo.Where(item => item.RecipeId == RecipeId);
         }
         public bool UpdateIngredientItem(IngredientsItemModel IngredientUpdate){
             _context.Update<IngredientsItemModel>(IngredientUpdate);
             return _context.SaveChanges() != 0;
         }
-
-
     }
 }
