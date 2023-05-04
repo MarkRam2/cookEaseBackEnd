@@ -14,23 +14,21 @@ namespace cookEaseBackEnd.Models
         public int? Weight { get; set; }
 
         public IngredientsItemModel() { }
-        
+
     }
-                
-    
+
+
     public class Program
     {
 
         static void Main(string[] args)
         {
             List<IngredientsItemModel> ingredients = new List<IngredientsItemModel>();
-
             using (var dbContext = new DataContext())
             {
                 var ingredientsFromDb = dbContext.IngredientInfo
                     .Where(i => i.RecipeId == 1)
                     .ToList();
-
                 foreach (var Ingredent in ingredientsFromDb)
                 {
                     IngredientsItemModel model = new IngredientsItemModel
@@ -41,9 +39,7 @@ namespace cookEaseBackEnd.Models
                     ingredients.Add(model);
                 }
             }
-
             var options = new JsonSerializerOptions();
-
             string jsonString = JsonSerializer.Serialize<List<IngredientsItemModel>>(ingredients);
         }
     }
