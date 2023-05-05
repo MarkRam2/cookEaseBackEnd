@@ -12,7 +12,7 @@ using cookEaseBackEnd.Services.Context;
 namespace cookEaseBackEnd.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230504162552_init")]
+    [Migration("20230505210004_init")]
     partial class init
     {
         /// <inheritdoc />
