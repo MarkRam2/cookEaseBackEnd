@@ -7,6 +7,7 @@ using cookEaseBackEnd.Services.Context;
 
 namespace cookEaseBackEnd.Services
 {
+    
     public class RecipeService
     {
         private readonly DataContext _context;

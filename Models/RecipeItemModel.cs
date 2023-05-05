@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 namespace cookEaseBackEnd.Models
 {
 
-    [Keyless]
     public class RecipeItemModel
     {
         public int Id { get; set; }
@@ -25,6 +24,6 @@ namespace cookEaseBackEnd.Models
         public bool isPublished { get; set; }
         public bool isDeleted { get; set; }
 
-        public RecipeItemModel() { }
+        public RecipeItemModel(){}
     }
 }
