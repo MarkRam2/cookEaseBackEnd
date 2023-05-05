@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace cookEaseBackEnd.Models
 {
-    [Keyless]
     public class IngredientsItemModel
     {
         public int Id { get; set; }

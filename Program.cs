@@ -21,7 +21,7 @@ builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(conne
 builder.Services.AddCors(options => {
     options.AddPolicy("ArticlePolicy", 
     builder => {
-        builder.WithOrigins("cookeaseapi.azurewebsites.net")
+        builder.WithOrigins("cookeaseapi.azurewebsites.net", "http://localhost:3000", "http://localhost:3001")
         .AllowAnyHeader()
         .AllowAnyMethod();
     });
