@@ -39,7 +39,7 @@ namespace cookEaseBackEnd.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RecipeId = table.Column<int>(type: "int", nullable: true),
-                    Ingredent = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Ingredient = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Weight = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -55,7 +55,7 @@ namespace cookEaseBackEnd.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IngredientName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Calories = table.Column<int>(type: "int", nullable: false),
-                    Protein = table.Column<int>(type: "int", nullable: false),
+                    protein = table.Column<int>(type: "int", nullable: false),
                     Carbs = table.Column<int>(type: "int", nullable: false),
                     Fat = table.Column<int>(type: "int", nullable: false),
                     Sodium = table.Column<int>(type: "int", nullable: false),
@@ -97,7 +97,10 @@ namespace cookEaseBackEnd.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Salt = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Hash = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Hash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AboutMe = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProfilePic = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NutrionalGoals = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

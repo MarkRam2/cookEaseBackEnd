@@ -9,7 +9,7 @@ namespace cookEaseBackEnd.Models
     {
         public int Id { get; set; }
         public int? RecipeId { get; set; }
-        public string? Ingredent { get; set; }
+        public string? Ingredient { get; set; }
         public int? Weight { get; set; }
 
         public IngredientsItemModel() { }
@@ -30,12 +30,12 @@ namespace cookEaseBackEnd.Models
                     .Where(i => i.RecipeId == 1)
                     .ToList();
 
-                foreach (var Ingredent in ingredientsFromDb)
+                foreach (var Ingredient in ingredientsFromDb)
                 {
                     IngredientsItemModel model = new IngredientsItemModel
                     {
-                        Ingredent = Ingredent.Ingredent,
-                        Weight = Ingredent.Weight,
+                        Ingredient = Ingredient.Ingredient,
+                        Weight = Ingredient.Weight, 
                     };
                     ingredients.Add(model);
                 }

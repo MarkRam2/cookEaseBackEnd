@@ -73,7 +73,7 @@ namespace cookEaseBackEnd.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Ingredent")
+                    b.Property<string>("Ingredient")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("RecipeId")
@@ -107,14 +107,14 @@ namespace cookEaseBackEnd.Migrations
                     b.Property<string>("IngredientName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Protein")
-                        .HasColumnType("int");
-
                     b.Property<int>("Sodium")
                         .HasColumnType("int");
 
                     b.Property<bool>("isDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<int>("protein")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -175,7 +175,16 @@ namespace cookEaseBackEnd.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AboutMe")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Hash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NutrionalGoals")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProfilePic")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Salt")

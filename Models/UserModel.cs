@@ -11,6 +11,9 @@ namespace cookEaseBackEnd.Models
         public string? Username { get; set; }
         public string? Salt { get; set; }
         public string? Hash { get; set; }
+        public string? AboutMe { get; set; }
+        public string? ProfilePic { get; set; }
+        public string? NutrionalGoals { get; set; }
         public UserModel(){}
     }
 }
