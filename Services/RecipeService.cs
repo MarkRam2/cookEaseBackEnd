@@ -72,5 +72,8 @@ namespace cookEaseBackEnd.Services
         public IEnumerable<RecipeItemModel> GetItemsById(int Id){
             return _context.RecipeInfo.Where(item => item.Id == Id);
         }
+        public IEnumerable<RecipeItemModel> GetItemsByRecipeId(int RecipeId){
+            return _context.RecipeInfo.Where(item => item.RecipeId == RecipeId);
+        }
     }
 }

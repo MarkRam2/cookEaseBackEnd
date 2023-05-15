@@ -144,6 +144,9 @@ namespace cookEaseBackEnd.Migrations
                     b.Property<string>("PublisherName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("RecipeId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Region")
                         .HasColumnType("nvarchar(max)");
 

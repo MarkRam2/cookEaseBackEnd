@@ -11,6 +11,7 @@ namespace cookEaseBackEnd.Models
     public class RecipeItemModel
     {
         public int Id { get; set; }
+        public int RecipeId { get; set; }
         public int UserID { get; set; }
         public string? PublisherName { get; set; }
         public string? Date { get; set; }

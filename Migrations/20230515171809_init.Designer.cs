@@ -12,7 +12,7 @@ using cookEaseBackEnd.Services.Context;
 namespace cookEaseBackEnd.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230509043808_init")]
+    [Migration("20230515171809_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -146,6 +146,9 @@ namespace cookEaseBackEnd.Migrations
 
                     b.Property<string>("PublisherName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RecipeId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Region")
                         .HasColumnType("nvarchar(max)");
