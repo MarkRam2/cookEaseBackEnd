@@ -89,6 +89,12 @@ namespace cookEaseBackEnd.Controllers
             return _data.DeleteRecipeItem(RecipeDelete);
         }
 
+        [HttpGet]
+        [Route("GetItemsById/{Id}")]
+        public IEnumerable<RecipeItemModel> GetItemsById(int Id){
+            return _data.GetItemsById(Id);
+        }
+
         
     }
 }

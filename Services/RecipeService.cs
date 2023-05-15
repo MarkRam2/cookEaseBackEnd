@@ -69,5 +69,8 @@ namespace cookEaseBackEnd.Services
             _context.Update<RecipeItemModel>(RecipeDelete);
             return _context.SaveChanges() != 0;
         }
+        public IEnumerable<RecipeItemModel> GetItemsById(int Id){
+            return _context.RecipeInfo.Where(item => item.Id == Id);
+        }
     }
 }
