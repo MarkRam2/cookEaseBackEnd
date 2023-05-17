@@ -53,5 +53,10 @@ namespace cookEaseBackEnd.Controllers
         public UserModel GetUserByUsername(string? username){
             return _data.GetUserByUsername(username);
         }
+
+        [Route("GetUserById/{Id}")]
+        public UserModel GetUserById(int? Id){
+            return _data.GetUserById(Id);
+        }
     }
 }
